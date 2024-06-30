@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Data Collection</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <!--Header-->
+    <header>
+        <h1>Data Collection Form</h1>
+        <!-- Navigation -->
+        <nav>
+            <ul>
+                <li><a href="{{ url_for('welcome') }}">Home</a></li>
+                <li><a href="{{ url_for('information') }}">Information</a></li>
+                <li><a href="{{ url_for('data_collection') }}">Data Collection</a></li>
+            </ul>
+        </nav>
+    </header>
+    <!-- Main Content-->
+    <main class="content">
+        <h2>Fill in the page</h2>
+        <form action="{{ url_for('data_collection') }}" method="post">
+            {{ form.hidden_tag() }}
+            <label for="name">Name:</label>
+            {{ form.name(size=20) }}<br>
+
+            <label for="age">Age:</label>
+            {{ form.age(size=20) }}<br>
+
+            <label for="email">Email:</label>
+            {{ form.email(size=20) }}<br>
+
+            <label for="grades">Grades Obtained:</label>
+            {{ form.grades(size=20) }}<br>
+
+            <label for="feedback">Feedback:</label><br>
+            {{ form.feedback(rows=4, cols=50) }}<br>
+
+            <label for="satisfaction">Overall Satisfaction:</label>
+            <select id="satisfaction" name="satisfaction" required>
+                <option value="disabled selected">Select Satisfaction Level</option>
+                <option value="very-satisfied">Very Satisfied</option>
+                <option value="satisfied">Satisfied</option>
+                <option value="neutral">Neutral</option>
+                <option value="unsatisfied">Unsatisfied</option>
+                <option value="very-unsatisfied">Very Unsatisfied</option>
+            </select><br>
+
+            <button type="submit">Submit</button>
+        </form>
+    </main>
+    <!-- Footer -->
+    <footer>
+        <p> Glasgow International College.</p>
+    </footer>
+</body>
+</html>
